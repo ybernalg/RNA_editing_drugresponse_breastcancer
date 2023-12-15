@@ -1,6 +1,6 @@
 # RNA_editing_drugresponse_breastcancer
 
-# Differential A>I(G) RNA-edited sites (DES) from Breast Cancer cell lines    
+# I. Differential A>I(G) RNA-edited sites (DES) from Breast Cancer cell lines    
 
 ## Data Filters for the identification of differential A>I(G) RNA-edited sites (DES)   
 Base counts per site with allele AG or TC.
@@ -113,7 +113,7 @@ data$differential <- ifelse(data$pvalue < 0.01 & data$fdr < 0.1 & data$fold_chan
 | liftover to hg38          |     12,273       |              |            |
 
 
-# A>I(G) RNA-edited sites in women with breast cancer      
+# II. A>I(G) RNA-edited sites in women with breast cancer      
 
 ## Identification of RNA editing level    
 ## Machine learning algorithms using A>I(G) RNA edited sites and clinical data     
