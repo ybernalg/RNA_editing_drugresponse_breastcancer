@@ -17,11 +17,11 @@ Merge cell line data into three groups (PARPi, Anthracyclines, Alkylating agents
 
 ### DNA:RNA pair for to exclude variant in DNA  
 
-Exclude all sites reported in DepMap (using version 19Q3:hg19): https://depmap.org/portal/download/all/?releasename=DepMap+Public+19Q3
-Downloaded sample_info.csv & CCLE_mutations.csv
+Exclude all sites reported in DepMap (using version 19Q3:hg19) (https://depmap.org/portal/download/all/?releasename=DepMap+Public+19Q3)    
+Downloaded sample_info.csv & CCLE_mutations.csv    
 
-> a. Load data from DepMapPortal (https://depmap.org/portal/download/all/?releasename=DepMap+Public+22Q2&filename=sample_info.csv)     
-> b. Load data 19Q3:hg19 from DepMapPortal (https://depmap.org/portal/download/all/?releasename=DepMap+Public+19Q3&filename=CCLE_mutations.csv)     
+> a. Load data from DepMapPortal (https://depmap.org/portal/download/all/?releasename=DepMap+Public+22Q2&filename=sample_info.csv)          
+> b. Load data 19Q3:hg19 from DepMapPortal (https://depmap.org/portal/download/all/?releasename=DepMap+Public+19Q3&filename=CCLE_mutations.csv)           
 
 
 #### PARP inhibitors 
