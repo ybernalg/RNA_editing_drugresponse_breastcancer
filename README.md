@@ -1,6 +1,8 @@
 # RNA_editing_drugresponse_breastcancer
 
-## Data Filters for the identification of differential A>I(G) RNA-edited sites (DES)
+# Differential A>I(G) RNA-edited sites (DES) from Breast Cancer cell lines    
+
+## Data Filters for the identification of differential A>I(G) RNA-edited sites (DES)   
 Base counts per site with allele AG or TC.
 
 Apply filters for the identification of RNA edited sites (Master_table_CCLE, see code):
@@ -13,7 +15,7 @@ Apply filters for the identification of RNA edited sites (Master_table_CCLE, see
 Merge cell line data into three groups (PARPi, Anthracyclines, Alkylating agents).
 
 
-## DNA:RNA pair for to exclude variant in DNA  
+### DNA:RNA pair for to exclude variant in DNA  
 
 Exclude all sites reported in DepMap (using version 19Q3:hg19): https://depmap.org/portal/download/all/?releasename=DepMap+Public+19Q3
 Downloaded sample_info.csv & CCLE_mutations.csv
@@ -22,7 +24,7 @@ Downloaded sample_info.csv & CCLE_mutations.csv
 > b. Load data 19Q3:hg19 from DepMapPortal (https://depmap.org/portal/download/all/?releasename=DepMap+Public+19Q3&filename=CCLE_mutations.csv)     
 
 
-### PARP inhibitors 
+#### PARP inhibitors 
 
 DNA data
 > a. 1,239,235 total   
@@ -37,7 +39,7 @@ DNA data
 RNA data from Master table
 > 53,043 A>I(G) RNA edited sites - 225 variants in DNA = 52,818 RNA-edited sites   
 
-### Anthracyclines Group:
+#### Anthracyclines Group:
 
 DNA data
 > a. 1,239,235 total   
@@ -47,12 +49,12 @@ DNA data
 > e. 840 Reference_Allele == "A" & Strand == "+" | Reference_Allele == "T" & Strand == "-"   
 > f. 795 Variant_Type == "SNP"   
 > g. 508 allele == "A/G" & Strand == "+" | allele == "T/C" & Strand == "-"   
-> h. 225 match with 53,043 (position)   
+> h. 193 match with 53,043 (position)   
 
 RNA data from Master table
+> 54,760 A>I(G) RNA edited sites - 193 variants in DNA = 54,567 RNA-edited sites   
 
-
-### Alkylating agents Group:
+#### Alkylating agents Group:
 
 DNA data
 > a. 1,239,235 total   
@@ -66,7 +68,7 @@ DNA data
 
 RNA data from Master table
 
-# Apply REDITs test (https://github.com/gxiaolab/REDITs) 
+### Apply REDITs test (https://github.com/gxiaolab/REDITs) 
 From the output, we created this variables for the selection of sites differentially edited 
 ```
 data$EL_R <- data$mle_group_resistance_alpha/(data$mle_group_resistance_alpha + data$mle_group_resistance_beta) 
@@ -86,31 +88,34 @@ data$differential <- ifelse(data$pvalue < 0.01 & data$fdr < 0.1 & data$fold_chan
                                    "non_differential"))
 
 ```
-# Characterization of A>I(G) RNA-edited sites
+### Characterization of A>I(G) RNA-edited sites
 
-> Annotate with VEP hg19 from Variant effect Predictor (https://grch37.ensembl.org/Homo_sapiens/Tools/VEP)
-> Cross-reference with COSMIC GENE CONSENSUS
-> RepeatMasker from 
-
-
+> a. Annotate with VEP hg19 from Variant effect Predictor (https://grch37.ensembl.org/Homo_sapiens/Tools/VEP)   
+> b. Cross-reference with COSMIC GENE CONSENSUS (https://cancer.sanger.ac.uk/census)   
+> c. RepeatMasker version hg19 from (http://hgdownload.soe.ucsc.edu/goldenPath/hg19/database/rmsk.txt.gz) 
 
 
 
-# Summary of sites identified 
+
+
+### Summary of sites identified 
 
 | summary           |     PARPi         | Anthracyclines |  Alkylating agents |
 |-------------------------|-------------------|----------------|--------------------|
 | n group                 |    L= 10 ; H= 8  |   L= 8 ; H=7   |     L=10 ; H=9     |
-|   Todos                 |      53,043       |     54,760     |  52,455            |
-|  DNA out                |      52,818       |     54,567     | 56,425             |
+|  All A>I(G)                  |      53,043       |     54,760     |  52,455            |
+|  DNA out  A/G SNP         |      52,818       |     54,567     | 56,425             |
 |  diff p-value           |      17,679       |     14,852     | 18,792             |
 |  diff p-value/FDR       |      16,708       |    13,425      | 17,730             |
 |  diff p-value/FDR/FC    |      12,541       |   10,015       | 13,158             |
-|  diff L                 |     6,996         |           |              |
-|  diff H                 |     5,277         |          |             |
+|  diff L                 |     6,996         |       5,320    |              |
+|  diff H                 |     5,277         |       4,695   |             |
 | liftover to hg38          |     12,273       |              |            |
 
 
+# A>I(G) RNA-edited sites in women with breast cancer      
 
+## Identification of RNA editing level    
+## Machine learning algorithms using A>I(G) RNA edited sites and clinical data     
 
 
