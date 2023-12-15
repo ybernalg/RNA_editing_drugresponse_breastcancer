@@ -40,14 +40,14 @@ RNA data from Master table
 ### Anthracyclines Group:
 
 DNA data
-> a. 1,239,235 total
-> b. 35,520 lineage == breast
-> c. 9,386 selected cell lines
-> d. 1,703 Reference_Allele == "A" | Reference_Allele == "T"
-> e. 840 Reference_Allele == "A" & Strand == "+" | Reference_Allele == "T" & Strand == "-"
-> f. 795 Variant_Type == "SNP"
-> g. 508 allele == "A/G" & Strand == "+" | allele == "T/C" & Strand == "-"
-> h. 225 match with 53,043 (position)
+> a. 1,239,235 total   
+> b. 35,520 lineage == breast   
+> c. 9,386 selected cell lines   
+> d. 1,703 Reference_Allele == "A" | Reference_Allele == "T"   
+> e. 840 Reference_Allele == "A" & Strand == "+" | Reference_Allele == "T" & Strand == "-"   
+> f. 795 Variant_Type == "SNP"   
+> g. 508 allele == "A/G" & Strand == "+" | allele == "T/C" & Strand == "-"   
+> h. 225 match with 53,043 (position)   
 
 RNA data from Master table
 
@@ -108,7 +108,7 @@ data$differential <- ifelse(data$pvalue < 0.01 & data$fdr < 0.1 & data$fold_chan
 |  diff p-value/FDR/FC    |      12,541       |   10,015       | 13,158             |
 |  diff L                 |     6,996         |           |              |
 |  diff H                 |     5,277         |          |             |
-| liftover to hg38          |     12,273       |         9,920       | 13,016               |
+| liftover to hg38          |     12,273       |              |            |
 
 
 
