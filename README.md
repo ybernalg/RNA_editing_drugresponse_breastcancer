@@ -90,7 +90,7 @@ data$differential <- ifelse(data$pvalue < 0.01 & data$fdr < 0.1 & data$fold_chan
 ```
 ### Characterization of A>I(G) RNA-edited sites
 
-> a. Annotate with VEP hg19 from Variant effect Predictor (https://grch37.ensembl.org/Homo_sapiens/Tools/VEP)   
+> a. Annotate and predict the functional consequences with VEP hg19 from Variant effect Predictor (https://grch37.ensembl.org/Homo_sapiens/Tools/VEP): our results by filtering for one selected consequence per variant allele.   
 > b. Cross-reference with COSMIC GENE CONSENSUS (https://cancer.sanger.ac.uk/census)   
 > c. RepeatMasker version hg19 from (http://hgdownload.soe.ucsc.edu/goldenPath/hg19/database/rmsk.txt.gz) 
 
