@@ -105,9 +105,9 @@ data$differential <- ifelse(data$pvalue < 0.01 & data$fdr < 0.1 & data$fold_chan
 | n group                 |    L= 10 ; H= 8  |   L= 8 ; H=7   |     L=10 ; H=9     |
 |  All A>I(G)                  |      53,043       |     54,760     |  52,455            |
 |  DNA out  A/G SNP         |      52,818       |     54,567     | 56,662             |
-|  diff p-value/FDR/FC    |      12,541       |   10,015       | 13,384             |
-|  diff L                 |     6,996         |       5,320    |      6,152     |
-|  diff H                 |     5,277         |       4,695   |     7,232       |
+|  diff p-value/FDR/FC    |      12,541       |   10,015       | 13,158             |
+|  diff L                 |     5,996         |       5,320    |      6,047     |
+|  diff H                 |     6,545         |       4,695   |     7,111       |
 | liftover to hg38          |     12,273       |              |            |
 
 
