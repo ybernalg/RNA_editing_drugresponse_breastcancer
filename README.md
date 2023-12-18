@@ -113,7 +113,12 @@ data$differential <- ifelse(data$pvalue < 0.01 & data$fdr < 0.1 & data$fold_chan
 
 # II. A>I(G) RNA-edited sites in women with breast cancer      
 
-## Identification of RNA editing level    
+## Identification of RNA editing level  
+
+### Liftover     
+> 35,714 DES (no-unique) were convert to hg38 from hg19 in UCSC (https://genome.ucsc.edu/cgi-bin/hgLiftOver)
+
+
 ## Machine learning algorithms using A>I(G) RNA edited sites and clinical data     
 
 
