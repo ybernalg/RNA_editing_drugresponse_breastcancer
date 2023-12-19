@@ -117,6 +117,14 @@ data <- subset(data, select = -c(3:20))
 
 
 colnames(data) <- c("Uploaded_variation", "strand", 
+                    "AU565_A",  "AU565_C",  "AU565_G",  "AU565_T",
+                    "CAL148_A",  "CAL148_C",  "CAL148_G",  "CAL148_T",
+                    "CAL51_A",  "CAL51_C",  "CAL51_G",  "CAL51_T",
+                    "CAMA1_A", "CAMA1_C", "CAMA1_G", "CAMA1_T",
+                    "HCC1954_A", "HCC1954_C", "HCC1954_G", "HCC1954_T",
+                    "HCC70_A", "HCC70_C", "HCC70_G", "HCC70_T",
+                    "MDAMB468_A",  "MDAMB468_C",  "MDAMB468_G",  "MDAMB468_T",
+                    "UACC812_A", "UACC812_C", "UACC812_G", "UACC812_T",
                     "BT474_A", "BT474_C", "BT474_G", "BT474_T",
                     "BT483_A", "BT483_C", "BT483_G", "BT483_T",
                     "BT549_A", "BT549_C", "BT549_G", "BT549_T",
@@ -126,21 +134,12 @@ colnames(data) <- c("Uploaded_variation", "strand",
                     "HCC1500_A", "HCC1500_C", "HCC1500_G", "HCC1500_T", 
                     "HCC38_A", "HCC38_C", "HCC38_G", "HCC38_T",
                     "MDAMB175VII_A", "MDAMB175VII_C", "MDAMB175VII_G", "MDAMB175VII_T",
-                    "ZR7530_A", "ZR7530_C", "ZR7530_G", "ZR7530_T",
-                    
-                    "AU565_A",  "AU565_C",  "AU565_G",  "AU565_T",
-                    "CAL148_A",  "CAL148_C",  "CAL148_G",  "CAL148_T",
-                    "CAL51_A",  "CAL51_C",  "CAL51_G",  "CAL51_T",
-                    "CAMA1_A", "CAMA1_C", "CAMA1_G", "CAMA1_T",
-                    "HCC1954_A", "HCC1954_C", "HCC1954_G", "HCC1954_T",
-                    "HCC70_A", "HCC70_C", "HCC70_G", "HCC70_T",
-                    "MDAMB468_A",  "MDAMB468_C",  "MDAMB468_G",  "MDAMB468_T",
-                    "UACC812_A", "UACC812_C", "UACC812_G", "UACC812_T")
+                    "ZR7530_A", "ZR7530_C", "ZR7530_G", "ZR7530_T")
 
 
-cell_lines <- c("BT474", "BT483", "BT549", "CAL120", "HCC1419", "HCC1428", "HCC1500", 
-                "HCC38", "MDAMB175VII", "ZR7530", "AU565", "CAL148", "CAL51", "CAMA1", 
-                "HCC1954", "HCC70", "MDAMB468", "UACC812")
+cell_lines <- c( "AU565", "CAL148", "CAL51", "CAMA1", 
+                 "HCC1954", "HCC70", "MDAMB468", "UACC812", "BT474", "BT483", "BT549", "CAL120", "HCC1419", "HCC1428", "HCC1500", 
+                "HCC38", "MDAMB175VII", "ZR7530")
 
 # Iterating over each cell line to create reads of the reference and alternate allele.
 for (cell_line in cell_lines) {
@@ -185,12 +184,12 @@ create.matrix <- function(site){
   
   
   mat.editions <- rbind(alt, ref)
-  colnames(mat.editions) <- c("BT474", "BT483", "BT549",
+  colnames(mat.editions) <- c("AU565",  "CAL148", "CAL51",
+                              "CAMA1", "HCC1954", "HCC70", "MDAMB468",
+                              "UACC812", "BT474", "BT483", "BT549",
                               "CAL120", "HCC1419", "HCC1428",
                               "HCC1500",  "HCC38", "MDAMB175VII",
-                              "ZR7530", "AU565",  "CAL148", "CAL51",
-                              "CAMA1", "HCC1954", "HCC70", "MDAMB468",
-                              "UACC812")
+                              "ZR7530")
   #mat.editions[is.na(mat.editions)] <- 0
   #mat.editions[na.omit(mat.editions)]
   
@@ -364,10 +363,6 @@ data$fold_change = ((data$EL_R/data$EL_S))
 data$fold_change_log = (log(data$fold_change, 2))
 
 
-data$differential = ifelse(data$pvalue < 0.01 & data$fdr <=0.1 & abs(data$fold_change_log) >= 2.5, 
-                           ifelse(data$fold_change_log > 2.5 ,'low_sensitivity',
-                                  'high_sensitivity'),
-                           'non_differential')
 
 data$differential <- ifelse(data$pvalue < 0.01 & data$fdr < 0.1 & data$fold_change_log >= 2.5, 
                             "low_sensitivity",
