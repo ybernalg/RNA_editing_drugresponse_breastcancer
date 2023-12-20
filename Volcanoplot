@@ -1,0 +1,59 @@
+
+
+library(ggplot2)
+p1 <- ggplot(data, 
+             aes(x=fold_change_log, y=-log10(fdr), 
+                 colour=differential
+             )) +
+  geom_point(alpha=0.4, size=3.5) +
+  scale_color_manual(values=c("#E7B800","#00AFBB", "grey")) + 
+  xlim(c(-20, 20)) +
+  geom_vline(xintercept=c(-2.5,2.5),lty=2,col="black",lwd=0.8) +
+  geom_hline(yintercept = 1.5,lty=2,col="black",lwd=0.8) +
+  labs(x="log2 (fold change)",
+       y="-log10 (FDR)",
+       title="Differential RNA edition in BC cell lines to PARP inhibitors")  +
+  theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5), 
+        legend.position="right", 
+        legend.title = element_blank())
+
+
+
+
+p2 <- ggplot(data, 
+             aes(x=fold_change_log, y=-log10(fdr), 
+                 colour=differential,
+             )) +
+  geom_point(alpha=0.4, size=3.5) +
+  scale_color_manual(values=c("#E7B800","#00AFBB", "grey")) + 
+  xlim(c(-20, 20)) +
+  geom_vline(xintercept=c(-2.5,2.5),lty=2,col="black",lwd=0.8) +
+  geom_hline(yintercept = 1.5,lty=2,col="black",lwd=0.8) +
+  labs(x="log2 (fold change)",
+       y="-log10 (FDR)",
+       title="Differential RNA edition in BC cell lines to anthracyclines")  +
+  theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5), 
+        legend.position="right", 
+        legend.title = element_blank())
+
+
+
+
+p3 <- ggplot(data, 
+             aes(x=fold_change_log, y=-log10(fdr), 
+                 colour=differential,
+             )) +
+  geom_point(alpha=0.4, size=3.5) +
+  scale_color_manual(values=c("#E7B800","#00AFBB", "grey")) + 
+  xlim(c(-20, 20)) +
+  geom_vline(xintercept=c(-2.5,2.5),lty=2,col="black",lwd=0.8) +
+  geom_hline(yintercept = 1.5,lty=2,col="black",lwd=0.8) +
+  labs(x="log2 (fold change)",
+       y="-log10 (FDR)",
+       title="Differential RNA edition in BC cell lines to alkylating agents")  +
+  theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5), 
+        legend.position="right", 
+        legend.title = element_blank())
