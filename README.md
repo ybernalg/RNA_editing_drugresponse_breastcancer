@@ -108,7 +108,7 @@ data$differential <- ifelse(data$pvalue < 0.01 & data$fdr < 0.1 & data$fold_chan
 |  diff p-value/FDR/FC    |      12,347       |   10,015       | 13,158             |
 |  diff L                 |     6,939         |       5,320    |      6,047     |
 |  diff H                 |     5,408         |       4,695   |     7,111       |
-| liftover to hg38          |     12,273       |              |            |
+
 
 
 # II. A>I(G) RNA-edited sites in women with breast cancer      
